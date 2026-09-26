@@ -71,7 +71,7 @@ def register_docker_tools(mcp, conn_mgr) -> None:
         """Start a stopped Docker container."""
         try:
             docker = _docker(params.nas)
-            result = docker.start_container(name=params.container_name)
+            result = docker.start_container(container=params.container_name)
             return json.dumps({"status": "success", "action": "started", "container": params.container_name}, indent=2)
         except Exception as e:
             return handle_synology_error(e, "Start container")
@@ -84,7 +84,7 @@ def register_docker_tools(mcp, conn_mgr) -> None:
         """Stop a running Docker container."""
         try:
             docker = _docker(params.nas)
-            result = docker.stop_container(name=params.container_name)
+            result = docker.stop_container(container=params.container_name)
             return json.dumps({"status": "success", "action": "stopped", "container": params.container_name}, indent=2)
         except Exception as e:
             return handle_synology_error(e, "Stop container")
@@ -97,8 +97,7 @@ def register_docker_tools(mcp, conn_mgr) -> None:
         """Restart a Docker container."""
         try:
             docker = _docker(params.nas)
-            docker.stop_container(name=params.container_name)
-            docker.start_container(name=params.container_name)
+            docker.restart_container(container=params.container_name)
             return json.dumps({"status": "success", "action": "restarted", "container": params.container_name}, indent=2)
         except Exception as e:
             return handle_synology_error(e, "Restart container")
