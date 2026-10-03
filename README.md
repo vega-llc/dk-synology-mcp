@@ -27,7 +27,7 @@ Comprehensive Synology NAS management through the [Model Context Protocol](https
 | Shared Folders | 3 | List shares, folder info, permissions |
 | Virtualization (VMM) | 5 | List VMs, info, power on/off, graceful shutdown |
 | Snapshots | 4 | List snapshots, create, delete, replication tasks |
-| Active Backup | 6 | List tasks/devices, info, logs, restore points |
+| Active Backup | 6 | List tasks (with problem/stale filters), task and device info, logs, restore points |
 | System | 4 | List connections, test connectivity, disconnect, capabilities |
 
 ## Installation
